@@ -1,0 +1,68 @@
+Magesh Kuppan
+
+Methodology:
+    No powerpoints
+    100% hands on
+
+Software:
+    go.dev
+    visual studio code
+
+Repo:
+    https://github.com/tkmagesh/adobe-go-jun-2022
+
+Why Go?
+
+    - C
+~1980 - C++
+1995 - Java
+     - Python
+2000 - .NET (C#)
+     - Ruby
+
+2010 - Go
+
+
+    1. Better concurrency support
+    2. Easy to start with
+    3. Performance
+    4. Scalability
+    5. Compiled
+
+    * Simplicity
+        - 25 keywords
+        - No access modifiers
+        - No classes (Only structs)
+        - No Inheritance (Only composition)
+        - No exceptions (Only errors)
+        - No pointer arithmetic
+        - No reference types (everything is value type)
+        - No implicity type conversion
+
+    * Performance
+        - Equivalent to C++
+        - Compiled to native code
+            - Cross platform compilation is possible
+
+    * Concurrency
+        - Go is built for concurrency
+        - Concurrency features are built in the language
+            go, chan (data type), <- (channel operator), select & range constructs
+        - SDK APIs for concurrency (sync package)
+
+Paradox of Choice - Barry Schwartz
+
+Every go file must belong to a package
+The starting point of the app is the 'main' function
+The file that has the 'main' function must belong to 'main' package
+
+Execute a program without build
+    go run hello-world.go 
+
+Build the program
+    go build hello-world.go
+    go build -o hw hello-world.go
+
+    
+Execute the build 
+    ./hello-world
