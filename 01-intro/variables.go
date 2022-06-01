@@ -89,4 +89,65 @@ func main() {
 	result := x + y
 
 	fmt.Println(x, y, str, result)
+
+	var zeroint int
+	var zerobool bool
+	var zerostr string
+	var zerobyte byte
+	fmt.Println(zeroint, zerobool, zerostr, zerobyte)
+	fmt.Printf("zerostr = %q\n", zerostr)
+
+	fmt.Println("Constants")
+	const pi float32 = 3.14
+	fmt.Println("pi =", pi)
+
+	fmt.Println("iota")
+	/*
+		const (
+			red   = iota
+			green = iota
+			blue  = iota
+		)
+	*/
+	/*
+		const (
+			red = iota
+			green
+			blue
+		)
+	*/
+	/*
+		const (
+			red = iota + 2
+			green
+			blue
+		)
+	*/
+	/*
+		const (
+			red = iota * 2
+			green
+			blue
+		)
+	*/
+	const (
+		red = iota * 2
+		green
+		_
+		blue
+	)
+	fmt.Println("red =", red, "green =", green, "blue =", blue)
+
+	const (
+		read   = 1 << iota // 00000001 = 1
+		write              // 00000010 = 2
+		remove             // 00000100 = 4
+
+		// admin will have all of the permissions
+		admin = read | write | remove
+	)
+	fmt.Printf("read = %v\n", read)
+	fmt.Printf("write = %v\n", write)
+	fmt.Printf("remove = %v\n", remove)
+	fmt.Printf("admin = %v\n", admin)
 }
