@@ -63,6 +63,39 @@ Build the program
     go build hello-world.go
     go build -o hw hello-world.go
 
-    
+
 Execute the build 
     ./hello-world
+
+For cross platform compilation
+    Refer : https://go.dev/doc/install/source#environment
+
+    GOOS=windows GOARCH=386 go build hello-world.go 
+
+    To set the go environment variables 
+        go env -w GOARCH=386 GOOS=windows
+
+Data Types
+    bool
+    string
+
+    int
+    int8
+    int16
+    int32
+    int64
+
+    uint
+    uint8
+    uint16
+    uint32
+    uint64
+
+    float32
+    float64
+
+    complex64 (real [float32] + imaginary [float32])
+    complex128 (real [float64] + imaginary [float64])
+
+    byte (alias for uint8)
+    rune (alias for int32) (Unicode code point)
