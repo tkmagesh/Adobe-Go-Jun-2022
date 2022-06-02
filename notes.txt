@@ -125,3 +125,10 @@ Build an interactive console calculator
         perform the operation
         display the result
         display the menu again
+
+Functions
+    Higher Order functions
+        Functions as data / object
+            a. Assign a function as a value to a variable
+            b. Pass a function as an argument to another function
+            c. Return a function as return values from another function
