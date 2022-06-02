@@ -133,3 +133,6 @@ Functions
             a. Assign a function as a value to a variable
             b. Pass a function as an argument to another function
             c. Return a function as return values from another function
+
+Assignment:02
+    Refactor the solution for 'assignment:01' to use functions
