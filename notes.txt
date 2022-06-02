@@ -127,6 +127,7 @@ Build an interactive console calculator
         display the menu again
 
 Functions
+    Variadic functions
     Higher Order functions
         Functions as data / object
             a. Assign a function as a value to a variable
