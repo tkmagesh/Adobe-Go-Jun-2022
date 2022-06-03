@@ -142,3 +142,39 @@ Errors
     Errors are not thrown (unlike Exceptions) but returned as values
 
 Deferred Functions
+
+
+Program
+    Open the file
+    defer Close the file
+
+    while not EOF
+
+        Read the line
+        if error {
+            log the error
+            return
+        }
+
+        Parse the line
+        if error {
+            log the error
+            return
+        }
+
+        Process the data
+        if error {
+            log the error
+            return
+        }
+
+    Return the result
+
+Collection Types
+    Array
+        Fixed size collection of data of the same type
+        Values can be accessed using an index
+        len -> length of the array
+        
+    Slice
+    Map
