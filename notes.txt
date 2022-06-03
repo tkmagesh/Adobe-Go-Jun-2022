@@ -136,3 +136,7 @@ Functions
 
 Assignment:02
     Refactor the solution for 'assignment:01' to use functions
+
+Errors
+    just values that represent an error
+    Errors are not thrown (unlike Exceptions) but returned as values
