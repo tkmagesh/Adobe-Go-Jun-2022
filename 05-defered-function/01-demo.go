@@ -21,7 +21,8 @@ func f1() {
 		}()
 		defer func() {
 			fmt.Println("	[deferred] - f1(3)")
-		}() */
+		}()
+	*/
 	defer fmt.Println("	[deferred] - f1(1)")
 	defer fmt.Println("	[deferred] - f1(2)")
 	defer fmt.Println("	[deferred] - f1(3)")
