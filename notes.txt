@@ -140,3 +140,5 @@ Assignment:02
 Errors
     just values that represent an error
     Errors are not thrown (unlike Exceptions) but returned as values
+
+Deferred Functions
