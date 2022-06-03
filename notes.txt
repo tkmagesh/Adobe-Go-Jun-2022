@@ -180,5 +180,5 @@ Collection Types
         Dynamically sized collection of data of the same type
         Values can be accessed using an index
         
-        
     Map
+        Dynamically sized collection of key/value pairs
