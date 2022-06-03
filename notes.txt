@@ -175,6 +175,10 @@ Collection Types
         Fixed size collection of data of the same type
         Values can be accessed using an index
         len -> length of the array
-        
+
     Slice
+        Dynamically sized collection of data of the same type
+        Values can be accessed using an index
+        
+        
     Map
