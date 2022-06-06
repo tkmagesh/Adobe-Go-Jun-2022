@@ -27,4 +27,9 @@ func main() {
 	for _, val := range nos {
 		fmt.Println(val)
 	}
+
+	newNos := nos
+	newNos[0] = 100
+	fmt.Println(nos, newNos)
+
 }
