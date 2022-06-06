@@ -182,3 +182,34 @@ Collection Types
         
     Map
         Dynamically sized collection of key/value pairs
+
+
+Before go 1.13
+    $GOPATH
+        /pkg
+        /bin
+        /src
+            /github.com
+                /tkmagesh
+                    /adobe-go-jun-2022   
+
+
+After go 1.13
+    Support for modules were added (there by we have the freedom to organize our code anywhere in our system (not limited by the GOPATH folder))
+
+    module file => go.mod
+        module name
+        target go version
+        list of dependencies
+
+    To create a module
+        go mod init <module name>
+            module name = repo path
+
+    To run a module
+        go run .
+
+    to build a module
+        go build .
+        go build -o <output file> .
+
