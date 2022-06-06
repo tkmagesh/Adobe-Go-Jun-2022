@@ -213,3 +213,21 @@ After go 1.13
         go build .
         go build -o <output file> .
 
+    to install a third party module
+        go get <module name>
+        go get github.com/fatih/color
+
+        (by default, the source code of the thrid party modules are downloaded to the $GOPATH/pkg folder)
+
+    to update the go.mod file (based on the usage of the modules)
+        go mod tidy
+
+    to localize the source code of the dependencies
+        go mod vendor
+
+    Other mod commands
+        go mod graph
+        go mod why
+
+    Module command reference
+        https://go.dev/ref/mod
