@@ -47,7 +47,9 @@ func Format(p Product) string {
                 3. are all the products costly stationary products?
 				etc */
 
-func IndexOf(products []Product, product Product) int {
+type Products []Product
+
+func (products Products) IndexOf(product Product) int {
 	for idx, p := range products {
 		if p == product {
 			return idx
@@ -56,7 +58,7 @@ func IndexOf(products []Product, product Product) int {
 	return -1
 }
 
-func Includes(products []Product, product Product) bool {
+func (products Products) Includes(product Product) bool {
 	for _, p := range products {
 		if p == product {
 			return true
@@ -65,8 +67,8 @@ func Includes(products []Product, product Product) bool {
 	return false
 }
 
-func filter(products []Product, predicate func(Product) bool) []Product {
-	result := []Product{}
+func (products Products) Filter(predicate func(Product) bool) Products {
+	result := Products{}
 	for _, p := range products {
 		if predicate(p) {
 			result = append(result, p)
@@ -75,7 +77,7 @@ func filter(products []Product, predicate func(Product) bool) []Product {
 	return result
 }
 
-func any(products []Product, predicate func(Product) bool) bool {
+func (products Products) Any(predicate func(Product) bool) bool {
 	for _, p := range products {
 		if predicate(p) {
 			return true
@@ -84,7 +86,7 @@ func any(products []Product, predicate func(Product) bool) bool {
 	return false
 }
 
-func all(products []Product, predicate func(Product) bool) bool {
+func (products Products) All(predicate func(Product) bool) bool {
 	for _, p := range products {
 		if !predicate(p) {
 			return false
@@ -93,7 +95,7 @@ func all(products []Product, predicate func(Product) bool) bool {
 	return true
 }
 
-func FormatProducts(products []Product) string {
+func (products Products) Format() string {
 	result := ""
 	for _, p := range products {
 		result += fmt.Sprintf("%s\n", Format(p))
@@ -102,7 +104,7 @@ func FormatProducts(products []Product) string {
 }
 
 func main() {
-	products := []Product{
+	products := Products{
 		Product{105, "Pen", 5, 50, "Stationary"},
 		Product{107, "Pencil", 2, 100, "Stationary"},
 		Product{103, "Marker", 50, 20, "Utencil"},
@@ -129,7 +131,7 @@ func main() {
 	fmt.Println(costlyProducts.Format())
 
 	fmt.Println("Stationary Products")
-	stationaryProducts := filter(products, func(p Product) bool {
+	stationaryProducts := products.Filter(func(p Product) bool {
 		return p.Category == "Stationary"
 	})
 	//fmt.Println(FormatProducts(stationaryProducts))
