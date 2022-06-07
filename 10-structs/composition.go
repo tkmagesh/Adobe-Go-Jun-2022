@@ -41,14 +41,17 @@ func main() {
 	fmt.Println(Format(*grapes)) //=> Id = 100, Name = "Grapes", Cost = 36, Units = 2, Category = "Food", Expiry = "2 DAYS"
 }
 
+//method for Product
 func FormatProduct(p Product) string {
 	return fmt.Sprintf("Id = %d, Name = %q, Cost = %v, Units = %d, Category = %q", p.Id, p.Name, p.Cost, p.Units, p.Category)
 }
 
+// method for PerishableProduct
 func Format(pp PerishableProduct) string {
 	return fmt.Sprintf("%v, Expiry = %q", FormatProduct(pp.Product), pp.Expiry)
 }
 
+// method for Product
 func ApplyDiscount(pp *PerishableProduct, discount float32) {
 	pp.Cost = pp.Cost * ((100 - discount) / 100)
 }
