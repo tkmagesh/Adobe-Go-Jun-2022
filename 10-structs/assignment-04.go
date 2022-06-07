@@ -47,6 +47,80 @@ func Format(p Product) string {
                 3. are all the products costly stationary products?
 				etc */
 
+func indexOf(products []Product, product Product) int {
+	for idx, p := range products {
+		if p == product {
+			return idx
+		}
+	}
+	return -1
+}
+
+func includes(products []Product, product Product) bool {
+	for _, p := range products {
+		if p == product {
+			return true
+		}
+	}
+	return false
+}
+
+/* func filterCostlyProducts(products []Product) []Product {
+	result := []Product{}
+	for _, p := range products {
+		if p.Cost > 1000 {
+			result = append(result, p)
+		}
+	}
+	return result
+}
+
+func filterStationaryProducts(products []Product) []Product {
+	result := []Product{}
+	for _, p := range products {
+		if p.Category == "Stationary" {
+			result = append(result, p)
+		}
+	}
+	return result
+} */
+
+func filter(products []Product, predicate func(Product) bool) []Product {
+	result := []Product{}
+	for _, p := range products {
+		if predicate(p) {
+			result = append(result, p)
+		}
+	}
+	return result
+}
+
+func any(products []Product, predicate func(Product) bool) bool {
+	for _, p := range products {
+		if predicate(p) {
+			return true
+		}
+	}
+	return false
+}
+
+func all(products []Product, predicate func(Product) bool) bool {
+	for _, p := range products {
+		if !predicate(p) {
+			return false
+		}
+	}
+	return true
+}
+
+func FormatProducts(products []Product) string {
+	result := ""
+	for _, p := range products {
+		result += fmt.Sprintf("%s\n", Format(p))
+	}
+	return result
+}
+
 func main() {
 	products := []Product{
 		Product{105, "Pen", 5, 50, "Stationary"},
@@ -57,4 +131,27 @@ func main() {
 		Product{104, "Scribble Pad", 20, 20, "Stationary"},
 		Product{109, "Golden Pen", 2000, 20, "Stationary"},
 	}
+
+	/*
+		p1 := Product{105, "Pen", 5, 50, "Stationary"}
+		p2 := Product{105, "Pen", 5, 50, "Stationary"}
+		fmt.Println(p1 == p2)
+	*/
+
+	costlyProductPredicate := func(p Product) bool {
+		return p.Cost > 1000
+	}
+	costlyProducts := filter(products, costlyProductPredicate)
+	fmt.Println("Costly Products")
+	fmt.Println(FormatProducts(costlyProducts))
+
+	fmt.Println("Stationary Products")
+	stationaryProducts := filter(products, func(p Product) bool {
+		return p.Category == "Stationary"
+	})
+	fmt.Println(FormatProducts(stationaryProducts))
+
+	fmt.Println("Are there any costly products ? : ", any(products, costlyProductPredicate))
+
+	fmt.Println("Are all the products costly products ? : ", all(products, costlyProductPredicate))
 }
