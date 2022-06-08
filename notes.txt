@@ -231,3 +231,6 @@ After go 1.13
 
     Module command reference
         https://go.dev/ref/mod
+
+Concurrency
+    - NEVER EVER assume the time taken for a function to execute to synchronize the concurrent operations
