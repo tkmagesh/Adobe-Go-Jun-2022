@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 type Product struct {
@@ -116,6 +117,66 @@ func (products Products) String() string {
 	return result
 }
 
+//sort.Interface implementation
+func (products Products) Len() int {
+	return len(products)
+}
+
+func (products Products) Swap(i, j int) {
+	products[i], products[j] = products[j], products[i]
+}
+
+func (products Products) Less(i, j int) bool {
+	return products[i].Id < products[j].Id
+}
+
+type ByName struct {
+	Products
+}
+
+func (byName ByName) Less(i, j int) bool {
+	return byName.Products[i].Name < byName.Products[j].Name
+}
+
+type ByUnits struct {
+	Products
+}
+
+func (byUnits ByUnits) Less(i, j int) bool {
+	return byUnits.Products[i].Units < byUnits.Products[j].Units
+}
+
+type ByCost struct {
+	Products
+}
+
+func (byCost ByCost) Less(i, j int) bool {
+	return byCost.Products[i].Cost < byCost.Products[j].Cost
+}
+
+type ByCategory struct {
+	Products
+}
+
+func (byCategory ByCategory) Less(i, j int) bool {
+	return byCategory.Products[i].Category < byCategory.Products[j].Category
+}
+
+func (products Products) Sort(attrName string) {
+	switch attrName {
+	case "Id":
+		sort.Sort(products)
+	case "Name":
+		sort.Sort(ByName{products})
+	case "Cost":
+		sort.Sort(ByCost{products})
+	case "Units":
+		sort.Sort(ByUnits{products})
+	case "Category":
+		sort.Sort(ByCategory{products})
+	}
+}
+
 func main() {
 	products := Products{
 		Product{105, "Pen", 5, 50, "Stationary"},
@@ -155,4 +216,30 @@ func main() {
 
 	//fmt.Println("Are all the products costly products ? : ", all(products, costlyProductPredicate))
 	fmt.Println("Are all the products costly products ? : ", products.All(costlyProductPredicate))
+
+	fmt.Println()
+	fmt.Println("Sorting")
+	fmt.Println("Initial List")
+	fmt.Println(products)
+
+	fmt.Println("Default sort (by id)")
+	sort.Sort(products)
+	fmt.Println(products)
+
+	fmt.Println("Sort by Name")
+	//sort.Sort(ByName{products})
+	products.Sort("Name")
+	fmt.Println(products)
+
+	fmt.Println("Sort by Cost")
+	products.Sort("Cost")
+	fmt.Println(products)
+
+	fmt.Println("Sort by Units")
+	products.Sort("Units")
+	fmt.Println(products)
+
+	fmt.Println("Sort by Category")
+	products.Sort("Category")
+	fmt.Println(products)
 }
