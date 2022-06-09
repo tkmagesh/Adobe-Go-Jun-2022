@@ -22,7 +22,6 @@ func generatePrimes(start, end int) <-chan int {
 				time.Sleep(500 * time.Millisecond)
 				primeNoCh <- no
 			}
-			no++
 		}
 		close(primeNoCh)
 	}()
