@@ -16,7 +16,7 @@ func main() {
 
 func generatePrimes(start int) <-chan int {
 	primeNoCh := make(chan int)
-	timeOutCh := timeOut(20 * time.Second)
+	timeOutCh := time.After(20 * time.Second)
 	go func() {
 		no := start
 	LOOP:
@@ -48,7 +48,6 @@ func timeOut(d time.Duration) <-chan time.Time {
 	go func() {
 		time.Sleep(d)
 		timeOutCh <- time.Now()
-
 	}()
 	return timeOutCh
 }
