@@ -251,3 +251,11 @@ Concurrency
             A receive operation is ALWAYS a blocking operation
             A send operation can succeed ONLY if a receive operation is already initiated (conditions apply)
                 (A send operation is blocked until a receiver operation is initiated)
+
+
+Assignment - 08
+    Create a goroutine that will generate the first n prime numbers starting from the given number
+
+    func generatePrime(start, count int){
+        
+    }

@@ -10,13 +10,17 @@ func main() {
 	fmt.Println("main started")
 
 	resultCh := add(100, 200)
+	/*
+		go func() {
+			resultCh <- 20000
+		}()
+	*/
 	result := <-resultCh
-
 	fmt.Println("result =", result)
 	fmt.Println("main completed")
 }
 
-func add(x, y int) chan int {
+func add(x, y int) <-chan int {
 	var resultCh chan int = make(chan int)
 	go func() {
 		fmt.Println("	add operation - started")
