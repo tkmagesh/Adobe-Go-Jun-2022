@@ -234,3 +234,20 @@ After go 1.13
 
 Concurrency
     - NEVER EVER assume the time taken for a function to execute to synchronize the concurrent operations
+
+    DONT communicate by sharing memory, share memory by communicating.
+
+    Channel
+        var ch chan int 
+        ch = make(chan int)
+
+        Send Operation
+        ch <- 100
+
+        Receive Operation
+        data := <- ch
+
+        Behavior:
+            A receive operation is ALWAYS a blocking operation
+            A send operation can succeed ONLY if a receive operation is already initiated (conditions apply)
+                (A send operation is blocked until a receiver operation is initiated)

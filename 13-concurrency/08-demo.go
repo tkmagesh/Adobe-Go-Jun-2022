@@ -20,6 +20,6 @@ func main() {
 }
 
 func fn(wg *sync.WaitGroup) {
+	defer wg.Done()
 	atomic.AddInt64(&counter, 1)
-	wg.Done()
 }
