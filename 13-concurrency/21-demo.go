@@ -4,7 +4,10 @@ import "fmt"
 
 func main() {
 	//non-buffered channel
-	ch := make(chan int)
+	//ch := make(chan int)
+
+	//buffered channel (size 0)
+	ch := make(chan int, 0)
 
 	//buffered channel (size 1)
 	//ch := make(chan int, 1)

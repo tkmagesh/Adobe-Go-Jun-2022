@@ -8,6 +8,10 @@ func init() {
 	fmt.Println("Calculator initialized")
 }
 
+func init() {
+	fmt.Println("Calculator initialized")
+}
+
 func OpCount() int {
 	return opCount
 }
