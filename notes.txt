@@ -259,3 +259,27 @@ Assignment - 08
     func generatePrime(start, count int){
         
     }
+
+
+io
+    interfaces
+        Reader
+        Writer
+        Closer
+        Seeker
+
+    os package
+        APIs for file manipulating
+            creating, opening & deleting files
+
+    ioutil package
+        APIs for file reading & writing file
+
+    bufio package
+        APIs for buffered I/O
+
+
+    JSON data
+        encoding/json package
+            Encoder (serialization)
+            Decoder (deserialization)
